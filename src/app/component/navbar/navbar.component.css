@@ -1,0 +1,6 @@
+aside{
+  background-color:aquamarine;
+  width: var(--sidebar-width);
+  height: calc(95vh  - var(--toolbar-height));
+  position:fixed;
+};
