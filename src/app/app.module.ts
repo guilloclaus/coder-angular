@@ -6,6 +6,9 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { PageWrapperComponent } from './component/page-wrapper/page-wrapper.component';
 import { HomeComponent } from './component/home/home.component';
+import { AlumnosComponent } from './views/alumnos/alumnos.component';
+import { CursosComponent } from './views/cursos/cursos.component';
+import { InscripcionesComponent } from './views/inscripciones/inscripciones.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { HomeComponent } from './component/home/home.component';
     ToolbarComponent,
     NavbarComponent,
     PageWrapperComponent,
-    HomeComponent
+    HomeComponent,
+    AlumnosComponent,
+    CursosComponent,
+    InscripcionesComponent
   ],
   imports: [
     BrowserModule

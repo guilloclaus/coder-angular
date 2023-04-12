@@ -1,6 +1,6 @@
 aside{
-  background-color:aquamarine;
+  background-color:rgb(207, 206, 206);
   width: var(--sidebar-width);
-  height: calc(95vh  - var(--toolbar-height));
+  height: calc(100vh  - var(--toolbar-height));
   position:fixed;
 };
