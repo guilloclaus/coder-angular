@@ -9,6 +9,8 @@ import { HomeComponent } from './component/home/home.component';
 import { AlumnosComponent } from './views/alumnos/alumnos.component';
 import { CursosComponent } from './views/cursos/cursos.component';
 import { InscripcionesComponent } from './views/inscripciones/inscripciones.component';
+import { ListaAlumnosComponent } from './views/listaAlumnos/lista-alumnos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,13 @@ import { InscripcionesComponent } from './views/inscripciones/inscripciones.comp
     HomeComponent,
     AlumnosComponent,
     CursosComponent,
-    InscripcionesComponent
+    InscripcionesComponent,
+    ListaAlumnosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

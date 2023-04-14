@@ -1,1 +1,102 @@
-<p>alumnos works!</p>
+<div class="row">
+  <div class="col-10">
+    <h1>Datos de alumno</h1>
+    <form (ngSubmit)="onSubmit()"
+          [formGroup]="registerForm"
+          autocomplete="off"
+          class="row g-3"
+    >
+
+          <div class="col-md-6">
+            <label for="inputFirstName" class="form-label">Nombre</label>
+            <input
+              formControlName="nombre"
+              type="text"
+              [ngClass]="{ 'is-invalid': nombreControlIsInvalid }"
+              class="form-control"
+              id="inputFirstName"
+            >
+            <div class="form-text">Mínimo 6 caracteres.</div>
+            <div
+              *ngIf="nombreControl?.hasError('required') && nombreControlIsInvalid"
+              class="invalid-feedback">
+              Este campo es requerido.
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Apellido</label>
+            <input formControlName="apellido" type="text" class="form-control" id="inputLastName">
+          </div>
+
+
+          <div class="col-md-2">
+            <label for="exampleFormControlInput1">Documento</label>
+            <input  type="text" class="form-control" id="exampleFormControlInput1" >
+          </div>
+          <div class="col-md-2">
+            <label for="exampleFormControlInput1"></label>
+            <select id="inputState" class="form-select" formControlName="tipoDocumento" >
+              <option value="" selected>Seleccione ...</option>
+              <option value="1">DNI</option>
+              <option value="2">CUIL</option>
+              <option value="3">LC</option>
+              <option value="4">LE</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="exampleFormControlInput1">Email</label>
+            <input  type="text" class="form-control" id="exampleFormControlInput1" >
+          </div>
+
+
+          <!------------------------------------------------------------------------------------->
+          <ng-container formGroupName="localizacion">
+            <div class="col-md-4">
+              <label for="exampleFormControlInput1">Calle</label>
+              <input  type="text" class="form-control" id="exampleFormControlInput1" >
+            </div>
+            <div class="col-md-2">
+              <label for="exampleFormControlInput1">Numero</label>
+              <input  type="text" class="form-control" id="exampleFormControlInput1" >
+            </div>
+            <div class="col-md-2">
+              <label for="exampleFormControlInput1">Piso</label>
+              <input  type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <!------------------------------------------------------------------------------------->
+            <div class="col-md-4">
+              <label for="exampleFormControlInput1">Provincia</label>
+              <select id="inputState" class="form-select" formControlName="provincia" >
+                <option value="" selected>Seleccione ...</option>
+                <option value="1">Capital Federal</option>
+                <option value="2">Buenos Aires</option>
+                <option value="3">Santa Fe</option>
+                <option value="4">Cordoba</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="exampleFormControlInput1">Localidad</label>
+              <input  type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="col-md-2">
+              <label for="exampleFormControlInput1">CP</label>
+              <input  type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="col-2">
+            </div>
+            <!------------------------------------------------------------------------------------->
+          </ng-container>
+
+          <div class="col-12">
+
+          </div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary" style="width: 20vh;">Cancelar</button>
+          </div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary" style="width: 20vh;">Aceptar</button>
+          </div>
+    </form>
+  </div>
+</div>
