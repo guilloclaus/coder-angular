@@ -16,49 +16,113 @@
               class="form-control"
               id="inputFirstName"
             >
-            <div class="form-text">Mínimo 6 caracteres.</div>
             <div
               *ngIf="nombreControl?.hasError('required') && nombreControlIsInvalid"
               class="invalid-feedback">
-              Este campo es requerido.
+              Campo requerido.
             </div>
           </div>
 
           <div class="col-md-6">
             <label for="inputLastName" class="form-label">Apellido</label>
-            <input formControlName="apellido" type="text" class="form-control" id="inputLastName">
+            <input
+              formControlName="apellido"
+              type="text"
+              [ngClass]="{ 'is-invalid': apellidoControlIsInvalid }"
+              class="form-control"
+              id="inputLastName"
+            >
+            <div
+              *ngIf="apellidoControl?.hasError('required') && apellidoControlIsInvalid"
+              class="invalid-feedback">
+              Campo requerido.
+            </div>
           </div>
 
 
           <div class="col-md-2">
             <label for="exampleFormControlInput1">Documento</label>
-            <input  type="text" class="form-control" id="exampleFormControlInput1" >
+            <input
+            formControlName="documento"
+            type="text"
+            [ngClass]="{ 'is-invalid': documentoControl.invalid && this.documentoControl.touched}"
+            class="form-control"
+            id="inputDocumento"
+            >
+            <div
+              *ngIf="documentoControl?.hasError('required') && this.documentoControl.touched"
+              class="invalid-feedback">
+              Campo requerido.
+            </div>
           </div>
+
+
+
           <div class="col-md-2">
             <label for="exampleFormControlInput1"></label>
-            <select id="inputState" class="form-select" formControlName="tipoDocumento" >
+            <select id="optionTipoDocumento" class="form-select" formControlName="tipoDocumento" >
               <option value="" selected>Seleccione ...</option>
               <option value="1">DNI</option>
               <option value="2">CUIL</option>
               <option value="3">LC</option>
               <option value="4">LE</option>
             </select>
-          </div>
-          <div class="col-md-4">
-            <label for="exampleFormControlInput1">Email</label>
-            <input  type="text" class="form-control" id="exampleFormControlInput1" >
+
+
+
+
           </div>
 
+          <div class="col-md-4">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input
+              [formControl]="emailControl"
+              type="email"
+              [ngClass]="{ 'is-invalid': emailControl.invalid && this.emailControl.touched }"
+              class="form-control"
+              id="inputEmail"
+            >
+            <div *ngIf="emailControl.hasError('required') && this.emailControl.touched" class="invalid-feedback" >
+              Campo inválido.
+            </div>
+            <div *ngIf="emailControl.hasError('email') && this.emailControl.touched" class="invalid-feedback">
+              No es un email válido.
+            </div>
+          </div>
+          <div class="col-md-4"></div>
 
           <!------------------------------------------------------------------------------------->
+
           <ng-container formGroupName="localizacion">
             <div class="col-md-4">
               <label for="exampleFormControlInput1">Calle</label>
-              <input  type="text" class="form-control" id="exampleFormControlInput1" >
+              <input
+                    formControlName="calle"
+                    type="text"
+                    [ngClass]="{ 'is-invalid': calleControl.invalid && this.calleControl.touched}"
+                    class="form-control"
+                    id="inputCalle"
+              >
+              <div
+                *ngIf="calleControl?.hasError('required') && this.calleControl.touched"
+                class="invalid-feedback">
+                Campo requerido.
+              </div>
             </div>
             <div class="col-md-2">
               <label for="exampleFormControlInput1">Numero</label>
-              <input  type="text" class="form-control" id="exampleFormControlInput1" >
+              <input
+                    formControlName="numero"
+                    type="text"
+                    [ngClass]="{ 'is-invalid': numeroControl.invalid && this.numeroControl.touched}"
+                    class="form-control"
+                    id="inputCalle"
+              >
+              <div
+                *ngIf="numeroControl?.hasError('required') && this.numeroControl.touched"
+                class="invalid-feedback">
+                Campo requerido.
+              </div>
             </div>
             <div class="col-md-2">
               <label for="exampleFormControlInput1">Piso</label>
@@ -90,9 +154,6 @@
 
           <div class="col-12">
 
-          </div>
-          <div class="col-2">
-            <button type="submit" class="btn btn-primary" style="width: 20vh;">Cancelar</button>
           </div>
           <div class="col-2">
             <button type="submit" class="btn btn-primary" style="width: 20vh;">Aceptar</button>
